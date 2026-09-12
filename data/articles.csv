@@ -1,0 +1,7 @@
+id,title,source,published_at,location,crime_type,url
+1,Demo report: phone theft near transit stop,Demo News,2026-08-22,Egmore,Pickpocketing,https://example.com/article-1
+2,Demo report: chain-snatching case investigated,Demo News,2026-08-29,Velachery,Theft,https://example.com/article-2
+3,Demo report: police investigate assault allegation,Demo News,2026-09-03,Adyar,Assault,https://example.com/article-3
+4,Demo report: bag stolen outside shop,Demo News,2026-09-05,T. Nagar,Theft,https://example.com/article-4
+5,Demo report: harassment complaint registered,Demo News,2026-09-07,Egmore,Harassment,https://example.com/article-5
+6,Demo report: vandalism case filed,Demo News,2026-09-09,Adyar,Vandalism,https://example.com/article-6
