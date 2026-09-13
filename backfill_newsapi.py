@@ -74,12 +74,17 @@ for article in payload.get("articles", []):
     if not title or not url or url in existing_urls or crime_type is None:
         continue
 
+    location = find_location(combined_text)
+
+    if location is None:
+        continue
+
     new_records.append(
         {
             "title": title,
             "source": article.get("source", {}).get("name", domain),
             "published_at": (article.get("publishedAt") or "")[:10],
-            "location": find_location(combined_text) or "Chennai (General)",
+            "location": location,
             "crime_type": crime_type,
             "url": url,
             "is_reviewed": False,
