@@ -61,9 +61,49 @@ def load_preferences(name):
 
 
 @st.cache_data
-def load_articles():
+def load_articles(file_modified_at):
+    """Load only reviewed collector records.
+
+    file_modified_at changes whenever collector.py updates the CSV,
+    which refreshes Streamlit's cache automatically.
+    """
+    if not DATA_PATH.exists():
+        return pd.DataFrame()
+
     articles = pd.read_csv(DATA_PATH)
-    articles["published_at"] = pd.to_datetime(articles["published_at"], errors="coerce")
+
+    required_columns = {
+        "title",
+        "source",
+        "published_at",
+        "location",
+        "crime_type",
+        "url",
+        "is_reviewed",
+    }
+
+    missing_columns = required_columns - set(articles.columns)
+    if missing_columns:
+        raise ValueError(
+            "articles.csv is missing: " + ", ".join(sorted(missing_columns))
+        )
+
+    reviewed_values = (
+        articles["is_reviewed"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
+    articles = articles[
+        reviewed_values.isin(["true", "1", "yes"])
+    ].copy()
+
+    articles["published_at"] = pd.to_datetime(
+        articles["published_at"],
+        errors="coerce",
+    )
+
     return articles
 
 
@@ -211,7 +251,19 @@ if not st.session_state.user_name:
 
     st.stop()
 
-articles = load_articles()
+articles = load_articles(DATA_PATH.stat().st_mtime)
+
+if articles.empty:
+    st.info(
+        "No reviewed news records are available yet. "
+        "Run collector.py, review the rows in data/articles.csv, "
+        "then set is_reviewed to True."
+    )
+    st.stop()
+
+st.caption(
+    f"Showing {len(articles)} reviewed reported-news record(s)."
+)
 
 with st.sidebar:
     st.header(f"Hello, {st.session_state.user_name}")
