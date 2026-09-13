@@ -12,6 +12,7 @@ DATA_PATH = Path("data/articles.csv")
 # Use only RSS/API sources you are permitted to collect and display.
 FEEDS = {
     "Times of India — Chennai": "https://timesofindia.indiatimes.com/rssfeeds/2950623.cms",
+    "The Hindu — Chennai": "https://www.thehindu.com/news/cities/chennai/feeder/default.rss",
 }
 
 CHENNAI_AREAS = [
@@ -21,6 +22,8 @@ CHENNAI_AREAS = [
     "Avadi",
     "Besant Nagar",
     "Chromepet",
+    "Chengalpattu",
+    "Chengalpet",
     "Chintadripet",
     "Egmore",
     "Guindy",
@@ -132,15 +135,11 @@ def collect_articles():
             location = find_location(combined_text)
             if crime_type is None:
                 print(f"Skipped — no crime category: {title}")
-            elif location is None:
-                print(f"Needs location review: {title}")
-
-            # Ignore stories that do not clearly match both conditions.
-            if crime_type is None:
                 continue
 
             if location is None:
-                location = "Chennai (General)"
+                print(f"Needs location review: {title}")
+                continue
 
             new_records.append(
                 {

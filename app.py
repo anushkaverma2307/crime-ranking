@@ -88,16 +88,7 @@ def load_articles(file_modified_at):
             "articles.csv is missing: " + ", ".join(sorted(missing_columns))
         )
 
-    reviewed_values = (
-        articles["is_reviewed"]
-        .astype(str)
-        .str.strip()
-        .str.lower()
-    )
-
-    articles = articles[
-        reviewed_values.isin(["true", "1", "yes"])
-    ].copy()
+    articles = articles.copy()
 
     articles["published_at"] = pd.to_datetime(
         articles["published_at"],
