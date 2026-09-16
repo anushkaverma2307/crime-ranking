@@ -2,4 +2,4 @@
 URL: https://crime-numbers.streamlit.app/
 
 Go check it out :)
-this is just the prototype and test file
+this can tell you recent crime reports in selected regions of Chennai
