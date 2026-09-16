@@ -3,3 +3,5 @@ streamlit==1.55.0
 pandas==2.3.3
 feedparser
 requests
+folium
+streamlit-folium
