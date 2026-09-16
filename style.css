@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.stApp {
+    background: linear-gradient(135deg, #07111f 0%, #102a43 45%, #1b4965 100%);
+}
+
+/* Main text */
+.stApp p,
+.stApp label,
+.stApp span {
+    color: #e2e8f0;
+}
+
+/* ...the rest of your CSS... */
+
+
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #ffffff !important;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+[data-testid="stSidebar"] {
+    background: rgba(7, 17, 31, 0.95);
+}
+
+[data-testid="stSidebar"] * {
+    color: white;
+}
+
+div[data-testid="stTextInput"] {
+    max-width: 500px;
+}
+
+.stButton button p{
+    color: #1e293b !important;
+}
+
+div[data-testid="stFormSubmitButton"] button span {
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+    opacity: 1 !important;
+}
+
+div[data-testid="stFormSubmitButton"] button {
+    opacity: 1 !important;
+    background-color: white !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+div[data-testid="stFormSubmitButton"] button:hover {
+    opacity: 1 !important;
+    background-color: #dbeafe !important;
+}
+
+.stButton button:hover {
+    opacity: 1 !important;
+    filter: none !important;
+    background-color: #bfdbfe !important;
+}
+
+[data-testid="stCheckbox"] label span:has(+ input[type="checkbox"]:checked) {
+    background-color: #FFC400 !important;
+    border-color: #FFC400 !important;
+}
+
+/* Preference radio colors */
+
+[data-testid="stRadio"] div[role="radiogroup"] > label[data-baseweb="radio"]:nth-of-type(1):has(input[type="radio"]:checked) > div:first-child {
+    background-color: #FFE200 !important;
+    border-color: #FFE200 !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] > label[data-baseweb="radio"]:nth-of-type(2):has(input[type="radio"]:checked) > div:first-child {
+    background-color: #DBC300 !important;
+    border-color: #DBC300 !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] > label[data-baseweb="radio"]:nth-of-type(3):has(input[type="radio"]:checked) > div:first-child {
+    background-color: #BDA800 !important;
+    border-color: #BDA800 !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] > label[data-baseweb="radio"]:nth-of-type(4):has(input[type="radio"]:checked) > div:first-child {
+    background-color: #938200 !important;
+    border-color: #938200 !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] > label[data-baseweb="radio"]:nth-of-type(5):has(input[type="radio"]:checked) > div:first-child {
+    background-color: #525100 !important;
+    border-color: #525100 !important;
+}
+
+/* Yellow selected portion and handle */
+[data-testid="stSlider"] [data-baseweb="slider"] [style*="rgb(255, 75, 75)"] {
+    background-color: #FFC400 !important;
+}
+
+/* Reduce horizontal gap between the preference buttons */
+div[data-testid="stHorizontalBlock"]:has(button) {
+    gap: 0.5rem !important;
+}

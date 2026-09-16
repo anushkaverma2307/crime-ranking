@@ -1,4 +1,4 @@
-id,title,source,published_at,location,crime_type,url,is_reviewed
+id,title,source,published_on,location,crime_type,url,is_reviewed
 1,TTE arrested for sexually harassing woman passenger,The Times of India,2026-09-12,Chennai (General),Harassment,https://timesofindia.indiatimes.com/city/kochi/tte-arrested-for-sexually-harassing-woman-passenger/articleshow/134141479.cms,False
 2,"Fake sales tax officers rob Rs 70 lakh iron-rod consignment, abduct driver; 2 held in Palwal",The Times of India,2026-09-12,Chennai (General),Theft,https://timesofindia.indiatimes.com/city/gurgaon/fake-sales-tax-officers-rob-rs-70-lakh-iron-rod-consignment-abduct-driver-2-held-in-palwal/articleshow/134140635.cms,False
 3,"‘Murder by system’: CJP’s Abhijeet Dipke blames govt for MPSC aspirant's death; flags paper leaks, unemployment",The Times of India,2026-09-10,Chennai (General),Assault,https://timesofindia.indiatimes.com/city/pune/murder-by-system-cjps-abhijeet-dipke-blames-govt-for-mpsc-aspirants-death-flags-paper-leaks-unemployment/articleshow/134008511.cms,False
