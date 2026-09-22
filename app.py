@@ -389,6 +389,23 @@ with right:
             results.groupby("crime_type").size().reset_index(name="reported_articles")
             .sort_values("reported_articles", ascending=False)
         )
+
+        if not breakdown.empty:
+            top_row = breakdown.iloc[0]
+            top_crime_type = top_row["crime_type"]
+            top_crime_count = int(top_row["reported_articles"])
+            top_crime_share = top_crime_count / len(results)
+
+            # Only call a crime type "frequent" when it's a real pattern, not
+            # just one or two stray reports: a minimum count and a clear lead
+            # over the other categories.
+            if top_crime_count >= 3 and top_crime_share >= 0.4:
+                st.warning(
+                    f"📌 This place has frequently observed **{top_crime_type}** — "
+                    f"{top_crime_count} of {len(results)} reported article(s) "
+                    f"({top_crime_share:.0%}) for {place} are about {top_crime_type.lower()}."
+                )
+
         st.subheader("Why this tag?")
         breakdown["reported_articles"] = breakdown["reported_articles"].astype(str)
 
